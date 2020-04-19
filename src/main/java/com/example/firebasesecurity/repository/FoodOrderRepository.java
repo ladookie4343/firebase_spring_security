@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface FoodOrderRepository extends CrudRepository<FoodOrder, String> {
-    public List<FoodOrder> findByUser_Id(UUID userId);
+    List<FoodOrder> findByUser_Id(UUID userId);
 }
