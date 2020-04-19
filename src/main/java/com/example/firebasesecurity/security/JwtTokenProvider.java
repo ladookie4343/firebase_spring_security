@@ -36,7 +36,7 @@ public class JwtTokenProvider {
             User user = userService.getUserBy(firebaseToken.getUid());
             return Optional.of(new UsernamePasswordAuthenticationToken(user, "", user.getAuthorities()));
         } catch (FirebaseAuthException e) {
-            throw new InvalidJwtException("");
+            return Optional.empty();
         }
     }
 }

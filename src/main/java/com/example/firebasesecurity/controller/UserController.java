@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.example.firebasesecurity.security.AuthenticationControllerGuard.assertUserIdMatchesUserIdFromToken;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -26,6 +28,7 @@ public class UserController {
 
     @GetMapping("/{userId}/foodOrders")
     public List<FoodOrder> getUserOrders(@PathVariable String userId, @AuthenticationPrincipal User user) {
+        assertUserIdMatchesUserIdFromToken(userId, user);
         return userService.getOrderFor(userId);
     }
 
