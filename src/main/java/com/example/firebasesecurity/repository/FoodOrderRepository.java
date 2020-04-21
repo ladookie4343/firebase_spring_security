@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface FoodOrderRepository extends CrudRepository<FoodOrder, String> {
+public interface FoodOrderRepository extends CrudRepository<FoodOrder, UUID> {
     List<FoodOrder> findByUser_Id(UUID userId);
 }

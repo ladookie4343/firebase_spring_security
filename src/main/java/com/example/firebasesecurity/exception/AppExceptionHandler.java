@@ -10,13 +10,13 @@ import static org.springframework.http.ResponseEntity.status;
 @ControllerAdvice
 public class AppExceptionHandler {
 
-    @ExceptionHandler(value = {InvalidJwtException.class})
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = {InvalidJwtException.class})
     public ResponseEntity invalidJwt(InvalidJwtException ex) {
         return status(UNAUTHORIZED).build();
     }
 
 
-    @ExceptionHandler(value = {UserDoesntMatchTokenException.class})
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = {UserDoesntMatchTokenException.class})
     public ResponseEntity userDoesntMatchToken(UserDoesntMatchTokenException ex) {
         return status(UNAUTHORIZED).build();
     }
